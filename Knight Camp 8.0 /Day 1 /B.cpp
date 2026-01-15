@@ -2,12 +2,14 @@
 using namespace std;
 
 int main() {
-	ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
-    long long n;
-    cin >> n;
-
-    if (n % 2 == 0) cout << n/2 << endl;
-    else cout << n/2 - n << endl;
+	string s;
+    cin >> s;
+    int n = s.size();
+    
+    int x = 753, ans = 100000;
+    for (int i = 0; i < n-2; i++) {
+        int a = (s[i]-'0')*100 + (s[i+1]-'0')*10 + (s[i+2]-'0');
+        ans = min(ans, abs(x-a));
+    }
+    cout << ans << endl;
 }
